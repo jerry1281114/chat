@@ -64,6 +64,8 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
             elif "config_content" in json_data.keys():
                 result = robot.configure(info=json_data["config_content"], \
                 userid=json_data["userid"])
+            # TODO: 添加日志记录（打开日志文件，追加记录，关闭日志）
+            print(result)
             # step 3.Send
             # self.request.sendall(json.dumps(result).encode(encoding))
             self.request.sendall(json.dumps(result).encode("UTF-8"))
